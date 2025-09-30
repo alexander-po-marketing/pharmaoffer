@@ -16,8 +16,6 @@ const suppliers = [
     leadTime: '16 days',
     volume: '95T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/logo-Arshine.webp?version=20252209',
-    facility:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/656749f005ad5315033402.webp',
     tags: ['WHO prequalified', 'Sustainability'],
   },
   {
@@ -37,8 +35,6 @@ const suppliers = [
     leadTime: '19 days',
     volume: '120T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/sinoway-industrial-co-ltd.webp?version=20252509',
-    facility:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/67fcdcab3b980775300906.webp',
     tags: ['GMP', 'In stock', 'Audit ready'],
   },
   {
@@ -58,8 +54,6 @@ const suppliers = [
     leadTime: '18 days',
     volume: '60T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/temad-co.webp?version=20252309',
-    facility:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/6540ceb79c522044017715.webp',
     tags: ['Rapid dispatch', 'Flexible MOQs'],
   },
   {
@@ -79,8 +73,6 @@ const suppliers = [
     leadTime: '20 days',
     volume: '80T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/senova-technology-co-ltd.webp?version=20252209',
-    facility:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/63f8a9d778c63910140304.webp',
     tags: ['Ready stock', 'Regulatory support'],
   },
   {
@@ -100,8 +92,6 @@ const suppliers = [
     leadTime: '22 days',
     volume: '110T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/x.webp?version=20252209',
-    facility:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/64c10bb925a82131199569.webp',
     tags: ['Regulatory support', 'North America hub'],
   },
   {
@@ -121,8 +111,6 @@ const suppliers = [
     leadTime: '24 days',
     volume: '90T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/duchefa-farma-b-v.webp?version=20252209',
-    facility:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/639ade03a2fae504874189.webp',
     tags: ['EU release', 'Audit ready'],
   },
 ];
@@ -147,6 +135,12 @@ const inquiryAction = document.getElementById('inquiry-action');
 const selectionCompare = document.getElementById('selection-compare');
 const transactionalDial = document.querySelector('[data-role="transactional-dial"]');
 const siteSearchForm = document.querySelector('.site-header__search');
+const specialInquiryTrigger = document.getElementById('special-inquiry-trigger');
+const specialInquiryModal = document.getElementById('special-inquiry-modal');
+const specialInquiryClose = specialInquiryModal?.querySelector('.modal__close');
+const specialInquiryForm = document.getElementById('special-inquiry-form');
+const specialInquirySuccess = document.getElementById('special-inquiry-success');
+const specialInquiryDismiss = document.getElementById('special-inquiry-dismiss');
 
 const state = {
   selected: new Set(),
@@ -487,6 +481,78 @@ modalClose?.addEventListener('click', () => {
 compareModal?.addEventListener('click', (event) => {
   if (event.target === compareModal) {
     compareModal.setAttribute('hidden', '');
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  if (compareModal && !compareModal.hasAttribute('hidden')) {
+    compareModal.setAttribute('hidden', '');
+  }
+  if (specialInquiryModal && !specialInquiryModal.hasAttribute('hidden')) {
+    closeSpecialInquiry();
+  }
+});
+
+const openSpecialInquiry = () => {
+  if (!specialInquiryModal) return;
+  specialInquiryModal.removeAttribute('hidden');
+  if (specialInquiryForm) {
+    specialInquiryForm.removeAttribute('hidden');
+  }
+  if (specialInquirySuccess) {
+    specialInquirySuccess.setAttribute('hidden', '');
+  }
+  const firstField = specialInquiryModal.querySelector(
+    'input, select, textarea, button'
+  );
+  firstField?.focus();
+};
+
+const closeSpecialInquiry = () => {
+  if (!specialInquiryModal) return;
+  specialInquiryModal.setAttribute('hidden', '');
+  if (specialInquiryForm) {
+    specialInquiryForm.removeAttribute('hidden');
+    specialInquiryForm.reset();
+  }
+  if (specialInquirySuccess) {
+    specialInquirySuccess.setAttribute('hidden', '');
+  }
+};
+
+specialInquiryTrigger?.addEventListener('click', openSpecialInquiry);
+specialInquiryClose?.addEventListener('click', closeSpecialInquiry);
+specialInquiryDismiss?.addEventListener('click', closeSpecialInquiry);
+
+specialInquiryModal?.addEventListener('click', (event) => {
+  if (event.target === specialInquiryModal) {
+    closeSpecialInquiry();
+  }
+});
+
+specialInquiryForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const formData = new FormData(specialInquiryForm);
+  const summary = [
+    formData.get('product'),
+    formData.get('quantity') ? `${formData.get('quantity')} ${formData.get('unit')}` : null,
+    formData.get('market'),
+  ]
+    .filter(Boolean)
+    .join(' · ');
+
+  if (specialInquirySuccess) {
+    const summaryTarget = specialInquirySuccess.querySelector('.modal__success-summary');
+    if (summaryTarget) {
+      summaryTarget.textContent = summary || 'Your requirements';
+    }
+    specialInquirySuccess.removeAttribute('hidden');
+  }
+
+  if (specialInquiryForm) {
+    specialInquiryForm.setAttribute('hidden', '');
+    specialInquiryForm.reset();
   }
 });
 

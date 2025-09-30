@@ -72,26 +72,83 @@
               </p>
             </div>
             <div class="product-overview__sections">
-              <section class="product-overview__section" aria-labelledby="technical-details-title">
-                <h2 id="technical-details-title">Technical details</h2>
-                <dl class="product-specs">
-                  <div>
-                    <dt>CAS number</dt>
-                    <dd>103-90-2</dd>
-                  </div>
-                  <div>
-                    <dt>Synonyms</dt>
-                    <dd>Acetaminophen, p-Hydroxyacetanilide</dd>
-                  </div>
-                  <div>
-                    <dt>Therapeutic area</dt>
-                    <dd>Analgesic · Antipyretic</dd>
-                  </div>
-                  <div>
-                    <dt>Grade availability</dt>
-                    <dd>Pharma · GMP · CEP</dd>
-                  </div>
-                </dl>
+              <section
+                class="product-overview__section product-overview__section--technical"
+                aria-labelledby="technical-details-title"
+              >
+                <div class="technical-overview__header">
+                  <h2 id="technical-details-title">Technical details</h2>
+                </div>
+                <div class="technical-overview">
+                  <dl class="product-specs">
+                    <div>
+                      <dt>CAS number</dt>
+                      <dd>103-90-2</dd>
+                    </div>
+                    <div>
+                      <dt>Synonyms</dt>
+                      <dd>Acetaminophen, p-Hydroxyacetanilide</dd>
+                    </div>
+                    <div>
+                      <dt>Therapeutic area</dt>
+                      <dd>Analgesic · Antipyretic</dd>
+                    </div>
+                    <div>
+                      <dt>Grade availability</dt>
+                      <dd>Pharma · GMP · CEP</dd>
+                    </div>
+                    <div>
+                      <dt>Molecular formula</dt>
+                      <dd>C<sub>8</sub>H<sub>9</sub>NO<sub>2</sub></dd>
+                    </div>
+                    <div>
+                      <dt>Molecular weight</dt>
+                      <dd>151.16 g/mol</dd>
+                    </div>
+                  </dl>
+                  <figure
+                    class="molecule-diagram"
+                    role="img"
+                    aria-labelledby="molecule-caption"
+                  >
+                    <svg viewBox="0 0 220 180" aria-hidden="true">
+                      <g
+                        fill="none"
+                        stroke="rgba(54, 103, 127, 0.6)"
+                        stroke-width="6"
+                        stroke-linecap="round"
+                      >
+                        <path d="M40 90 L80 40 L140 40 L180 90 L140 140 L80 140 Z" />
+                        <path d="M40 90 L20 130" />
+                        <path d="M80 40 L80 10" />
+                        <path d="M140 40 L180 10" />
+                        <path d="M180 90 L210 90" />
+                        <path d="M140 140 L160 170" />
+                        <path d="M80 140 L40 170" />
+                      </g>
+                    </svg>
+                    <figcaption id="molecule-caption">
+                      Paracetamol molecular structure
+                    </figcaption>
+                  </figure>
+                </div>
+              </section>
+              <section
+                class="product-overview__section product-overview__section--inquiry"
+                aria-labelledby="special-inquiry-title"
+              >
+                <h2 id="special-inquiry-title">Get the best deal in the market</h2>
+                <p>
+                  Our experts connect your request to the right suppliers worldwide.
+                </p>
+                <ul class="checklist">
+                  <li>Access the global market in one click</li>
+                  <li>Tailored quotes to your needs</li>
+                  <li>Risk-free: refund if no match</li>
+                </ul>
+                <button class="btn btn--primary btn--block" type="button" id="special-inquiry-trigger">
+                  Start a Special Inquiry
+                </button>
               </section>
               <section class="product-overview__section" aria-labelledby="market-metrics-title">
                 <h2 id="market-metrics-title">Marketplace metrics</h2>
@@ -173,6 +230,44 @@
                       stroke-dasharray="6 8"
                     ></line>
                   </svg>
+                </article>
+                <article class="insight-card insight-card--bars">
+                  <header>
+                    <h3>Transaction volume</h3>
+                    <span class="chip chip--positive">+18%</span>
+                  </header>
+                  <p>Monthly shipment volume processed through Pharmaoffer.</p>
+                  <svg
+                    class="bar-chart"
+                    viewBox="0 0 320 160"
+                    role="img"
+                    aria-label="Bar chart showing growing transaction volume"
+                  >
+                    <g fill="rgba(60, 177, 195, 0.6)">
+                      <rect x="20" y="110" width="30" height="40" rx="6"></rect>
+                      <rect x="70" y="96" width="30" height="54" rx="6"></rect>
+                      <rect x="120" y="82" width="30" height="68" rx="6"></rect>
+                      <rect x="170" y="72" width="30" height="78" rx="6"></rect>
+                      <rect x="220" y="56" width="30" height="94" rx="6"></rect>
+                      <rect x="270" y="44" width="30" height="106" rx="6"></rect>
+                    </g>
+                    <line
+                      x1="10"
+                      y1="150"
+                      x2="310"
+                      y2="150"
+                      stroke="rgba(54, 103, 127, 0.18)"
+                      stroke-dasharray="8 10"
+                    ></line>
+                  </svg>
+                  <ul class="bar-chart__labels" aria-hidden="true">
+                    <li>Apr</li>
+                    <li>May</li>
+                    <li>Jun</li>
+                    <li>Jul</li>
+                    <li>Aug</li>
+                    <li>Sep</li>
+                  </ul>
                 </article>
                 <article class="insight-card">
                   <header>
@@ -446,6 +541,88 @@
           </button>
         </header>
         <div class="modal__content" id="compare-content"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="special-inquiry-modal" hidden>
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="special-inquiry-modal-title"
+      >
+        <header class="modal__header">
+          <h2 id="special-inquiry-modal-title">Special inquiry request</h2>
+          <button class="modal__close" type="button" aria-label="Close">
+            &times;
+          </button>
+        </header>
+        <div class="modal__content">
+          <form id="special-inquiry-form" class="rfq-form">
+            <div class="rfq-form__grid">
+              <label>
+                <span>Product</span>
+                <input type="text" name="product" placeholder="e.g. Paracetamol API" required />
+              </label>
+              <label>
+                <span>Quantity</span>
+                <div class="rfq-form__quantity">
+                  <input type="number" name="quantity" min="1" placeholder="500" />
+                  <select name="unit">
+                    <option value="kg">kg</option>
+                    <option value="mt">MT</option>
+                    <option value="lbs">lbs</option>
+                  </select>
+                </div>
+              </label>
+              <label>
+                <span>Delivery market</span>
+                <input type="text" name="market" placeholder="Region or country" />
+              </label>
+              <label>
+                <span>Timeline</span>
+                <select name="timeline">
+                  <option value="immediate">Immediate shipment</option>
+                  <option value="30">Within 30 days</option>
+                  <option value="60">Within 60 days</option>
+                  <option value="custom">Custom timeline</option>
+                </select>
+              </label>
+              <label>
+                <span>Certification requirements</span>
+                <input type="text" name="certs" placeholder="e.g. GMP, US FDA" />
+              </label>
+              <label>
+                <span>Attachments link</span>
+                <input type="url" name="attachments" placeholder="Share Drive or URL" />
+              </label>
+            </div>
+            <label class="rfq-form__textarea">
+              <span>Project briefing</span>
+              <textarea
+                name="brief"
+                rows="5"
+                placeholder="Tell us about your target formulation, regulatory status, and any constraints."
+              ></textarea>
+            </label>
+            <div class="rfq-form__actions">
+              <button class="btn btn--ghost" type="button" disabled>
+                Save draft
+              </button>
+              <button class="btn btn--primary" type="submit">Send to Pharmaoffer experts</button>
+            </div>
+          </form>
+          <div id="special-inquiry-success" class="modal__success" hidden>
+            <h3>We received your special inquiry</h3>
+            <p>
+              Our team will review <strong class="modal__success-summary">Your requirements</strong> and
+              introduce you to matching suppliers within 24 hours.
+            </p>
+            <button class="btn btn--primary" type="button" id="special-inquiry-dismiss">
+              Close
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 

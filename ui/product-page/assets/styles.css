@@ -247,6 +247,91 @@ a:hover {
   gap: 16px;
 }
 
+.product-overview__section--technical {
+  gap: 20px;
+}
+
+.technical-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(16px, 3vw, 32px);
+  align-items: center;
+}
+
+.technical-overview__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.molecule-diagram {
+  margin: 0;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: rgba(60, 177, 195, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(54, 103, 127, 0.12);
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  max-width: 220px;
+}
+
+.molecule-diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+.molecule-diagram figcaption {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(56, 56, 56, 0.6);
+  text-align: center;
+}
+
+.product-overview__section--inquiry {
+  background: linear-gradient(140deg, rgba(54, 103, 127, 0.1), rgba(60, 177, 195, 0.16));
+  color: var(--brand-dark);
+}
+
+.product-overview__section--inquiry h2 {
+  font-size: 20px;
+}
+
+.product-overview__section--inquiry p {
+  margin: 0;
+  color: rgba(56, 56, 56, 0.82);
+}
+
+.checklist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--brand-dark);
+}
+
+.checklist li::before {
+  content: '✔️';
+  font-size: 16px;
+}
+
+.btn--block {
+  width: 100%;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+}
+
 .product-overview__section h2 {
   margin: 0;
   font-size: 18px;
@@ -355,6 +440,27 @@ a:hover {
   gap: 12px;
   box-shadow: inset 0 0 0 1px rgba(54, 103, 127, 0.08);
   min-height: 0;
+}
+
+.insight-card--bars {
+  gap: 16px;
+}
+
+.bar-chart {
+  width: 100%;
+  height: auto;
+}
+
+.bar-chart__labels {
+  margin: -8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(56, 56, 56, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .insight-card header {
@@ -1047,6 +1153,83 @@ a:hover {
   gap: 16px;
 }
 
+.rfq-form {
+  display: grid;
+  gap: 20px;
+}
+
+.rfq-form__grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.rfq-form label span {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(56, 56, 56, 0.6);
+  margin-bottom: 6px;
+}
+
+.rfq-form input,
+.rfq-form select,
+.rfq-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(54, 103, 127, 0.2);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--brand-dark);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.rfq-form input:focus,
+.rfq-form select:focus,
+.rfq-form textarea:focus {
+  outline: 2px solid rgba(60, 177, 195, 0.45);
+  outline-offset: 2px;
+}
+
+.rfq-form__quantity {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 10px;
+}
+
+.rfq-form__textarea textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.rfq-form__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rfq-form__actions .btn {
+  flex: 1;
+  min-width: 220px;
+}
+
+.modal__success {
+  display: grid;
+  gap: 12px;
+  text-align: center;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background: rgba(60, 177, 195, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(54, 103, 127, 0.14);
+}
+
+.modal__success-summary {
+  color: var(--brand-primary);
+}
+
 .compare-table {
   width: 100%;
   border-collapse: collapse;
@@ -1192,6 +1375,14 @@ a:hover {
   .product-overview__sections {
     grid-template-columns: 1fr;
   }
+
+  .technical-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .molecule-diagram {
+    justify-self: start;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1256,6 +1447,19 @@ a:hover {
   }
 
   .selection-bar__actions .btn {
+    width: 100%;
+  }
+
+  .rfq-form__quantity {
+    grid-template-columns: 1fr;
+  }
+
+  .rfq-form__actions {
+    flex-direction: column;
+  }
+
+  .rfq-form__actions .btn {
+    min-width: 0;
     width: 100%;
   }
 }
