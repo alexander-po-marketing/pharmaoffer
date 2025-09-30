@@ -1,0 +1,27 @@
+# Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Allow checked-in SVG illustrations for the product page
+!ui/product-page/assets/images/*.svg
+
+# Fonts
+*.woff
+*.woff2
+*.ttf
+*.otf
+
+# Executables
+*.exe
+*.dll
+*.so
+*.bin
+
+# Archives
+*.zip
+*.tar
+*.gz
+*.rar
