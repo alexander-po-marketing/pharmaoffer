@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Temad company logo</title>
+  <desc id="logoDesc">Geometric wordmark for Temad with rounded lettering and accent underline.</desc>
+  <rect width="140" height="40" rx="8" fill="#ffffff"/>
+  <g fill="#36677f">
+    <path d="M16 12h8v3.4h-2.2V28h-3.6V15.4H16z"/>
+    <path d="M32.6 11.8c4 0 7 2.8 7 8.1 0 5.3-3 8.3-7 8.3s-7-3-7-8.3c0-5.3 3-8.1 7-8.1zm0 3.5c-1.8 0-3.2 1.5-3.2 4.6 0 3.1 1.4 4.8 3.2 4.8s3.2-1.7 3.2-4.8c0-3.1-1.4-4.6-3.2-4.6z"/>
+    <path d="M48.4 12h5.5l2.8 6.8h.1l2.8-6.8h5.5V28h-3.4l.1-11.5h-.1l-3.2 7.8h-2.5l-3.2-7.8h-.1l.1 11.5h-3.4z"/>
+    <path d="M75.8 12h3.6v6.2h6V12h3.6v16h-3.6v-6.4h-6V28h-3.6z"/>
+    <path d="M100.4 12h4.9l5.8 10.2h.1V12h3.6v16h-4.7l-6-10.5h-.1V28h-3.6z"/>
+  </g>
+  <path d="M18 32h104" stroke="#6da8d6" stroke-width="3" stroke-linecap="round"/>
+</svg>
