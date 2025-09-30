@@ -15,8 +15,6 @@ const suppliers = [
     certifications: ['WHO', 'ISO 14001'],
     leadTime: '16 days',
     volume: '95T yearly',
-    hero:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/656749f005ad5315033402.webp',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/logo-Arshine.webp?version=20252209',
     tags: ['WHO prequalified', 'Sustainability'],
   },
@@ -36,8 +34,6 @@ const suppliers = [
     certifications: ['CEP', 'EDMF'],
     leadTime: '19 days',
     volume: '120T yearly',
-    hero:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/67fcdcab3b980775300906.webp',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/sinoway-industrial-co-ltd.webp?version=20252509',
     tags: ['GMP', 'In stock', 'Audit ready'],
   },
@@ -57,8 +53,6 @@ const suppliers = [
     certifications: ['ISO 9001'],
     leadTime: '18 days',
     volume: '60T yearly',
-    hero:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/6540ceb79c522044017715.webp',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/temad-co.webp?version=20252309',
     tags: ['Rapid dispatch', 'Flexible MOQs'],
   },
@@ -78,8 +72,6 @@ const suppliers = [
     certifications: ['GMP', 'ISO 9001'],
     leadTime: '20 days',
     volume: '80T yearly',
-    hero:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/63f8a9d778c63910140304.webp',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/senova-technology-co-ltd.webp?version=20252209',
     tags: ['Ready stock', 'Regulatory support'],
   },
@@ -99,8 +91,6 @@ const suppliers = [
     certifications: ['US FDA', 'cGMP'],
     leadTime: '22 days',
     volume: '110T yearly',
-    hero:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/64c10bb925a82131199569.webp',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/x.webp?version=20252209',
     tags: ['Regulatory support', 'North America hub'],
   },
@@ -120,8 +110,6 @@ const suppliers = [
     certifications: ['EU GMP', 'FDA'],
     leadTime: '24 days',
     volume: '90T yearly',
-    hero:
-      'https://pharmaoffer.com/media/cache/rmci/upload/picture/639ade03a2fae504874189.webp',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/duchefa-farma-b-v.webp?version=20252209',
     tags: ['EU release', 'Audit ready'],
   },
@@ -144,7 +132,9 @@ const resetFiltersBtn = document.getElementById('reset-filters');
 const sortOrderSelect = document.getElementById('sort-order');
 const bulkCta = document.getElementById('bulk-cta');
 const inquiryAction = document.getElementById('inquiry-action');
+const selectionCompare = document.getElementById('selection-compare');
 const transactionalDial = document.querySelector('[data-role="transactional-dial"]');
+const siteSearchForm = document.querySelector('.site-header__search');
 
 const state = {
   selected: new Set(),
@@ -224,7 +214,6 @@ const formatCurrency = (value) => `$${value.toLocaleString()} / kg`;
 const renderSupplierCard = (supplier) => {
   const card = template.content.firstElementChild.cloneNode(true);
   const checkbox = card.querySelector('.supplier-checkbox');
-  const facilityImage = card.querySelector('.supplier-card__facility');
   const logoImage = card.querySelector('.supplier-card__logo');
   const badge = card.querySelector('.supplier-badge');
   const title = card.querySelector('h3');
@@ -237,8 +226,6 @@ const renderSupplierCard = (supplier) => {
   checkbox.dataset.id = supplier.id;
   checkbox.checked = state.selected.has(supplier.id);
 
-  facilityImage.src = supplier.hero;
-  facilityImage.alt = `${supplier.name} manufacturing site`;
   logoImage.src = supplier.logo;
   logoImage.alt = `${supplier.name} logo`;
 
@@ -351,6 +338,16 @@ const updateSelectionBar = () => {
   } else {
     selectionBar.classList.remove('is-active');
   }
+
+  if (clearSelectionBtn) {
+    clearSelectionBtn.disabled = count === 0;
+  }
+  if (inquiryAction) {
+    inquiryAction.disabled = count === 0;
+  }
+  if (selectionCompare) {
+    selectionCompare.disabled = count === 0;
+  }
 };
 
 const clearSelection = () => {
@@ -449,6 +446,15 @@ clearSelectionBtn?.addEventListener('click', clearSelection);
 compareBtn?.addEventListener('click', () => {
   if (!state.selected.size) return;
   openCompareModal();
+});
+
+selectionCompare?.addEventListener('click', () => {
+  if (!state.selected.size) return;
+  openCompareModal();
+});
+
+siteSearchForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
 });
 
 modalClose?.addEventListener('click', () => {

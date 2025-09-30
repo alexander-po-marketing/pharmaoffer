@@ -13,6 +13,56 @@
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-header__brand" href="#" aria-label="Pharmaoffer home">
+          <span class="site-header__brand-mark">Φ</span>
+          <span class="site-header__brand-word">Pharmaoffer</span>
+        </a>
+        <form class="site-header__search" role="search">
+          <label class="visually-hidden" for="global-search">Search</label>
+          <input
+            id="global-search"
+            type="search"
+            name="search"
+            placeholder="Search APIs, suppliers or CAS no."
+          />
+          <button class="btn btn--ghost" type="submit">Search</button>
+        </form>
+        <div class="site-header__actions">
+          <button class="icon-button" type="button" aria-label="Saved suppliers">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M6 4h12a1 1 0 0 1 1 1v16l-7-4-7 4V5a1 1 0 0 1 1-1Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button class="icon-button" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M12 4a4 4 0 0 1 4 4v3.26c0 .69.28 1.34.77 1.82l1.46 1.46H5.77l1.46-1.46c.49-.48.77-1.13.77-1.82V8a4 4 0 0 1 4-4Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10 19a2 2 0 0 0 4 0"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+          <button class="btn btn--primary" type="button">Create inquiry</button>
+        </div>
+      </div>
+    </header>
     <div class="page-shell">
       <header class="masthead">
         <div class="breadcrumbs">
@@ -295,6 +345,9 @@
         <button class="btn btn--ghost" type="button" id="clear-selection">
           Clear selection
         </button>
+        <button class="btn btn--ghost" type="button" id="selection-compare">
+          Compare
+        </button>
         <button class="btn btn--primary" type="button" id="inquiry-action">
           Send inquiries
         </button>
@@ -307,31 +360,24 @@
           <input type="checkbox" class="supplier-checkbox" />
           <span class="checkbox-custom" aria-hidden="true"></span>
         </label>
-        <figure class="supplier-card__media">
-          <img
-            class="supplier-card__facility"
-            src=""
-            alt=""
-            loading="lazy"
-          />
-          <div class="supplier-card__logo-overlay">
-            <div class="supplier-card__logo-wrapper">
-              <img
-                class="supplier-card__logo"
-                src=""
-                alt=""
-                loading="lazy"
-              />
-            </div>
+        <div class="supplier-card__branding">
+          <span class="supplier-badge" hidden></span>
+          <div class="supplier-card__logo-wrapper">
+            <img
+              class="supplier-card__logo"
+              src=""
+              alt=""
+              loading="lazy"
+            />
           </div>
-        </figure>
+        </div>
         <div class="supplier-card__body">
           <div class="supplier-card__header">
             <div class="supplier-card__identity">
               <h3></h3>
               <p class="supplier-card__subtitle"></p>
             </div>
-            <span class="supplier-badge"></span>
+            <span class="supplier-card__rating"></span>
           </div>
           <ul class="supplier-card__meta"></ul>
           <div class="supplier-card__tags"></div>
