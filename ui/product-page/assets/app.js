@@ -218,7 +218,6 @@ const renderSupplierCard = (supplier) => {
   const badge = card.querySelector('.supplier-badge');
   const title = card.querySelector('h3');
   const subtitle = card.querySelector('.supplier-card__subtitle');
-  const ratingEl = card.querySelector('.supplier-card__rating');
   const responseScoreEl = card.querySelector('.supplier-card__response-score');
   const responseTimeEl = card.querySelector('.supplier-card__response-time');
   const metaList = card.querySelector('.supplier-card__meta');
@@ -232,22 +231,12 @@ const renderSupplierCard = (supplier) => {
 
   if (supplier.badge) {
     badge.textContent = supplier.badge;
-    badge.className = 'supplier-badge';
-    const modifier = supplier.badge.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-    badge.classList.add(`supplier-badge--${modifier}`);
     badge.removeAttribute('hidden');
   } else {
     badge.setAttribute('hidden', '');
   }
   title.textContent = supplier.name;
   subtitle.textContent = supplier.subtitle;
-  if (ratingEl) {
-    ratingEl.innerHTML = `
-      <span class="supplier-card__rating-star" aria-hidden="true">★</span>
-      ${supplier.rating.toFixed(1)}
-    `;
-    ratingEl.setAttribute('aria-label', `${supplier.rating.toFixed(1)} out of 5`);
-  }
   responseScoreEl.textContent = `${supplier.responseScore}%`;
   const responseUnit = supplier.response === 1 ? 'hour' : 'hours';
   responseTimeEl.textContent = `Avg. reply in ${supplier.response} ${responseUnit}`;
