@@ -314,37 +314,42 @@
             alt=""
             loading="lazy"
           />
-          <div class="supplier-card__logo-wrapper">
-            <img
-              class="supplier-card__logo"
-              src=""
-              alt=""
-              loading="lazy"
-            />
-          </div>
-          <span class="supplier-badge"></span>
         </figure>
         <div class="supplier-card__body">
           <div class="supplier-card__header">
-            <div>
-              <h3></h3>
-              <p class="supplier-card__subtitle"></p>
+            <div class="supplier-card__identity">
+              <div class="supplier-card__logo-wrapper">
+                <img
+                  class="supplier-card__logo"
+                  src=""
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3></h3>
+                <p class="supplier-card__subtitle"></p>
+              </div>
             </div>
-            <div class="supplier-card__rating">
-              <span class="rating-value"></span>
-              <span class="rating-label">response score</span>
-            </div>
+            <span class="supplier-badge"></span>
           </div>
           <ul class="supplier-card__meta"></ul>
           <div class="supplier-card__tags"></div>
         </div>
-        <div class="supplier-card__actions">
-          <button class="btn btn--ghost btn--small" type="button">
-            View profile
-          </button>
-          <button class="btn btn--primary btn--small" type="button">
-            Quick inquiry
-          </button>
+        <div class="supplier-card__aside">
+          <div class="supplier-card__response">
+            <span class="supplier-card__response-label">Response rate</span>
+            <strong class="supplier-card__response-score"></strong>
+            <span class="supplier-card__response-time"></span>
+          </div>
+          <div class="supplier-card__actions">
+            <button class="btn btn--ghost btn--small" type="button">
+              View profile
+            </button>
+            <button class="btn btn--primary btn--small" type="button">
+              Quick inquiry
+            </button>
+          </div>
         </div>
       </article>
     </template>

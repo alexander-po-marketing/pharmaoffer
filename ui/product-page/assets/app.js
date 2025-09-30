@@ -229,7 +229,8 @@ const renderSupplierCard = (supplier) => {
   const badge = card.querySelector('.supplier-badge');
   const title = card.querySelector('h3');
   const subtitle = card.querySelector('.supplier-card__subtitle');
-  const ratingValue = card.querySelector('.rating-value');
+  const responseScoreEl = card.querySelector('.supplier-card__response-score');
+  const responseTimeEl = card.querySelector('.supplier-card__response-time');
   const metaList = card.querySelector('.supplier-card__meta');
   const tagsContainer = card.querySelector('.supplier-card__tags');
 
@@ -241,10 +242,17 @@ const renderSupplierCard = (supplier) => {
   logoImage.src = supplier.logo;
   logoImage.alt = `${supplier.name} logo`;
 
-  badge.textContent = supplier.badge;
+  if (supplier.badge) {
+    badge.textContent = supplier.badge;
+    badge.removeAttribute('hidden');
+  } else {
+    badge.setAttribute('hidden', '');
+  }
   title.textContent = supplier.name;
   subtitle.textContent = supplier.subtitle;
-  ratingValue.textContent = `${supplier.responseScore}%`;
+  responseScoreEl.textContent = `${supplier.responseScore}%`;
+  const responseUnit = supplier.response === 1 ? 'hour' : 'hours';
+  responseTimeEl.textContent = `Avg. reply in ${supplier.response} ${responseUnit}`;
 
   const metaItems = [
     { label: 'MOQ', value: `${supplier.moq} kg` },
