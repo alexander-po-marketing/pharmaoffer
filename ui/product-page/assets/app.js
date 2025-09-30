@@ -16,6 +16,8 @@ const suppliers = [
     leadTime: '16 days',
     volume: '95T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/logo-Arshine.webp?version=20252209',
+    facility:
+      'https://pharmaoffer.com/media/cache/rmci/upload/picture/656749f005ad5315033402.webp',
     tags: ['WHO prequalified', 'Sustainability'],
   },
   {
@@ -35,6 +37,8 @@ const suppliers = [
     leadTime: '19 days',
     volume: '120T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/sinoway-industrial-co-ltd.webp?version=20252509',
+    facility:
+      'https://pharmaoffer.com/media/cache/rmci/upload/picture/67fcdcab3b980775300906.webp',
     tags: ['GMP', 'In stock', 'Audit ready'],
   },
   {
@@ -54,6 +58,8 @@ const suppliers = [
     leadTime: '18 days',
     volume: '60T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/temad-co.webp?version=20252309',
+    facility:
+      'https://pharmaoffer.com/media/cache/rmci/upload/picture/6540ceb79c522044017715.webp',
     tags: ['Rapid dispatch', 'Flexible MOQs'],
   },
   {
@@ -73,6 +79,8 @@ const suppliers = [
     leadTime: '20 days',
     volume: '80T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/senova-technology-co-ltd.webp?version=20252209',
+    facility:
+      'https://pharmaoffer.com/media/cache/rmci/upload/picture/63f8a9d778c63910140304.webp',
     tags: ['Ready stock', 'Regulatory support'],
   },
   {
@@ -92,6 +100,8 @@ const suppliers = [
     leadTime: '22 days',
     volume: '110T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/x.webp?version=20252209',
+    facility:
+      'https://pharmaoffer.com/media/cache/rmci/upload/picture/64c10bb925a82131199569.webp',
     tags: ['Regulatory support', 'North America hub'],
   },
   {
@@ -111,6 +121,8 @@ const suppliers = [
     leadTime: '24 days',
     volume: '90T yearly',
     logo: 'https://pharmaoffer.com/media/cache/rmcl/upload/logo/duchefa-farma-b-v.webp?version=20252209',
+    facility:
+      'https://pharmaoffer.com/media/cache/rmci/upload/picture/639ade03a2fae504874189.webp',
     tags: ['EU release', 'Audit ready'],
   },
 ];
@@ -215,9 +227,11 @@ const renderSupplierCard = (supplier) => {
   const card = template.content.firstElementChild.cloneNode(true);
   const checkbox = card.querySelector('.supplier-checkbox');
   const logoImage = card.querySelector('.supplier-card__logo');
+  const facilityImage = card.querySelector('.supplier-card__facility');
   const badge = card.querySelector('.supplier-badge');
   const title = card.querySelector('h3');
   const subtitle = card.querySelector('.supplier-card__subtitle');
+  const ratingEl = card.querySelector('.supplier-card__rating');
   const responseScoreEl = card.querySelector('.supplier-card__response-score');
   const responseTimeEl = card.querySelector('.supplier-card__response-time');
   const metaList = card.querySelector('.supplier-card__meta');
@@ -229,14 +243,29 @@ const renderSupplierCard = (supplier) => {
   logoImage.src = supplier.logo;
   logoImage.alt = `${supplier.name} logo`;
 
+  if (facilityImage) {
+    facilityImage.src = supplier.facility;
+    facilityImage.alt = `${supplier.name} manufacturing facility`;
+  }
+
   if (supplier.badge) {
     badge.textContent = supplier.badge;
+    badge.className = 'supplier-badge';
+    const modifier = supplier.badge.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    badge.classList.add(`supplier-badge--${modifier}`);
     badge.removeAttribute('hidden');
   } else {
     badge.setAttribute('hidden', '');
   }
   title.textContent = supplier.name;
   subtitle.textContent = supplier.subtitle;
+  if (ratingEl) {
+    ratingEl.innerHTML = `
+      <span class="supplier-card__rating-star" aria-hidden="true">★</span>
+      ${supplier.rating.toFixed(1)}
+    `;
+    ratingEl.setAttribute('aria-label', `${supplier.rating.toFixed(1)} out of 5`);
+  }
   responseScoreEl.textContent = `${supplier.responseScore}%`;
   const responseUnit = supplier.response === 1 ? 'hour' : 'hours';
   responseTimeEl.textContent = `Avg. reply in ${supplier.response} ${responseUnit}`;
