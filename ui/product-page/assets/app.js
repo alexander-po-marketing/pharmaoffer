@@ -43,6 +43,7 @@ const suppliers = [
     subtitle: 'Tehran, Iran · Est. 1977',
     rating: 4.2,
     badge: 'Verified',
+    logo: 'assets/images/temad-logo.svg',
     compliance: ['gmp'],
     forms: ['granules', 'powder'],
     regions: ['asia'],
@@ -53,7 +54,7 @@ const suppliers = [
     certifications: ['ISO 9001'],
     leadTime: '18 days',
     volume: '60T yearly',
-    hero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80',
+    hero: 'assets/images/temad-facility.svg',
     tags: ['Rapid dispatch', 'Flexible MOQs'],
   },
   {

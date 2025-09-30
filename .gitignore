@@ -5,6 +5,9 @@
 *.gif
 *.svg
 
+# Allow checked-in SVG illustrations for the product page
+!ui/product-page/assets/images/*.svg
+
 # Fonts
 *.woff
 *.woff2
