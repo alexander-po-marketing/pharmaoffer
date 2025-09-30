@@ -1,0 +1,6 @@
+<svg width="180" height="64" viewBox="0 0 180 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="64" rx="14" fill="#383838"/>
+  <path d="M30 43L44 20L58 43H30Z" fill="#3CB1C3"/>
+  <path d="M44 26L52 43H36L44 26Z" fill="#8DCFDB"/>
+  <text x="70" y="38" fill="#F3F9FB" font-family="'Inter', 'Segoe UI', sans-serif" font-size="22" font-weight="700">AMOLI</text>
+</svg>
