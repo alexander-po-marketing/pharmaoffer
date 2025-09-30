@@ -227,7 +227,6 @@ const renderSupplierCard = (supplier) => {
   const card = template.content.firstElementChild.cloneNode(true);
   const checkbox = card.querySelector('.supplier-checkbox');
   const logoImage = card.querySelector('.supplier-card__logo');
-  const facilityImage = card.querySelector('.supplier-card__facility');
   const badge = card.querySelector('.supplier-badge');
   const title = card.querySelector('h3');
   const subtitle = card.querySelector('.supplier-card__subtitle');
@@ -242,11 +241,6 @@ const renderSupplierCard = (supplier) => {
 
   logoImage.src = supplier.logo;
   logoImage.alt = `${supplier.name} logo`;
-
-  if (facilityImage) {
-    facilityImage.src = supplier.facility;
-    facilityImage.alt = `${supplier.name} manufacturing facility`;
-  }
 
   if (supplier.badge) {
     badge.textContent = supplier.badge;
