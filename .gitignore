@@ -1,0 +1,24 @@
+# Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Fonts
+*.woff
+*.woff2
+*.ttf
+*.otf
+
+# Executables
+*.exe
+*.dll
+*.so
+*.bin
+
+# Archives
+*.zip
+*.tar
+*.gz
+*.rar
