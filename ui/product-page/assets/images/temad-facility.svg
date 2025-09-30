@@ -1,23 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="title desc">
-  <title id="title">Temad manufacturing facility</title>
-  <desc id="desc">Stylised illustration of an industrial pharmaceutical plant with silos and office block.</desc>
-  <rect width="160" height="120" fill="#f4f7fb" rx="12"/>
-  <path d="M20 86h120v18H20z" fill="#c5d8e8"/>
-  <rect x="30" y="38" width="44" height="48" rx="6" fill="#e2edf7"/>
-  <rect x="82" y="30" width="32" height="56" rx="6" fill="#d2e4f4"/>
-  <rect x="118" y="46" width="18" height="40" rx="5" fill="#b7d1e5"/>
-  <rect x="38" y="46" width="12" height="12" rx="2" fill="#ffffff"/>
-  <rect x="58" y="46" width="12" height="12" rx="2" fill="#ffffff"/>
-  <rect x="38" y="64" width="12" height="12" rx="2" fill="#ffffff"/>
-  <rect x="58" y="64" width="12" height="12" rx="2" fill="#ffffff"/>
-  <rect x="90" y="38" width="16" height="14" rx="2" fill="#ffffff"/>
-  <rect x="90" y="58" width="16" height="26" rx="2" fill="#ffffff"/>
-  <path d="M24 86V74c0-6 4-10 10-10h28c6 0 10 4 10 10v12" fill="#6da8d6" opacity="0.25"/>
-  <path d="M116 30c0-6 4-10 10-10s10 4 10 10v16h-20V30z" fill="#6da8d6" opacity="0.3"/>
-  <path d="M28 86h44" stroke="#6da8d6" stroke-width="4" stroke-linecap="round"/>
-  <path d="M82 86h34" stroke="#6da8d6" stroke-width="4" stroke-linecap="round"/>
-  <path d="M122 86h12" stroke="#6da8d6" stroke-width="4" stroke-linecap="round"/>
-  <path d="M34 38h36" stroke="#6da8d6" stroke-width="4" stroke-linecap="round"/>
-  <path d="M82 30h32" stroke="#6da8d6" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="126" cy="32" r="4" fill="#ffffff"/>
+<svg width="360" height="220" viewBox="0 0 360 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="360" height="220" rx="24" fill="#F4F8F9"/>
+  <path d="M60 164H300V126L264 108L240 120L204 102L168 120L144 108L108 126V164H60Z" fill="#36677F"/>
+  <path d="M108 164V130H140V164H108Z" fill="#ffffff" opacity="0.9"/>
+  <path d="M152 164V118H184V164H152Z" fill="#ffffff" opacity="0.82"/>
+  <path d="M196 164V116H228V164H196Z" fill="#ffffff" opacity="0.78"/>
+  <path d="M240 164V124H272V164H240Z" fill="#ffffff" opacity="0.74"/>
+  <rect x="170" y="136" width="20" height="28" rx="2" fill="#3CB1C3"/>
+  <path d="M84 164V140H96V164H84Z" fill="#8DCFDB"/>
+  <path d="M276 164V140H288V164H276Z" fill="#8DCFDB"/>
 </svg>

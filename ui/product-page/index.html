@@ -124,11 +124,21 @@
                 <span class="chip chip--neutral">Stable</span>
               </header>
               <div class="insight-card__body">
-                <div class="dial">
-                  <div class="dial__indicator" style="--value: 64"></div>
+              <div
+                class="dial"
+                role="img"
+                aria-live="polite"
+                aria-label="Transactional health score 64 out of 100"
+                data-role="transactional-dial"
+                data-value="64"
+              >
+                <div class="dial__indicator" aria-hidden="true"></div>
+                <div class="dial__center">
                   <span class="dial__value">64</span>
                   <small>On-time deliveries</small>
                 </div>
+              </div>
+
                 <ul class="dial__legend">
                   <li>Lead time predictability</li>
                   <li>Repeat purchase score</li>
@@ -298,10 +308,23 @@
           <input type="checkbox" class="supplier-checkbox" />
           <span class="checkbox-custom" aria-hidden="true"></span>
         </label>
-        <div class="supplier-card__media">
-          <img src="" alt="" loading="lazy" />
+        <figure class="supplier-card__media">
+          <img
+            class="supplier-card__facility"
+            src=""
+            alt=""
+            loading="lazy"
+          />
+          <div class="supplier-card__logo-wrapper">
+            <img
+              class="supplier-card__logo"
+              src=""
+              alt=""
+              loading="lazy"
+            />
+          </div>
           <span class="supplier-badge"></span>
-        </div>
+        </figure>
         <div class="supplier-card__body">
           <div class="supplier-card__header">
             <div>

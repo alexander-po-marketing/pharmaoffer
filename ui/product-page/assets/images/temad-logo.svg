@@ -1,13 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" role="img" aria-labelledby="logoTitle logoDesc">
-  <title id="logoTitle">Temad company logo</title>
-  <desc id="logoDesc">Geometric wordmark for Temad with rounded lettering and accent underline.</desc>
-  <rect width="140" height="40" rx="8" fill="#ffffff"/>
-  <g fill="#36677f">
-    <path d="M16 12h8v3.4h-2.2V28h-3.6V15.4H16z"/>
-    <path d="M32.6 11.8c4 0 7 2.8 7 8.1 0 5.3-3 8.3-7 8.3s-7-3-7-8.3c0-5.3 3-8.1 7-8.1zm0 3.5c-1.8 0-3.2 1.5-3.2 4.6 0 3.1 1.4 4.8 3.2 4.8s3.2-1.7 3.2-4.8c0-3.1-1.4-4.6-3.2-4.6z"/>
-    <path d="M48.4 12h5.5l2.8 6.8h.1l2.8-6.8h5.5V28h-3.4l.1-11.5h-.1l-3.2 7.8h-2.5l-3.2-7.8h-.1l.1 11.5h-3.4z"/>
-    <path d="M75.8 12h3.6v6.2h6V12h3.6v16h-3.6v-6.4h-6V28h-3.6z"/>
-    <path d="M100.4 12h4.9l5.8 10.2h.1V12h3.6v16h-4.7l-6-10.5h-.1V28h-3.6z"/>
-  </g>
-  <path d="M18 32h104" stroke="#6da8d6" stroke-width="3" stroke-linecap="round"/>
+<svg width="160" height="80" viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="80" rx="16" fill="#36677F"/>
+  <path d="M40 54L54 26H66L80 54H69.6L66.8 48H53.2L50.4 54H40ZM56.4 41.6H63.6L60 33.6L56.4 41.6Z" fill="#ffffff" opacity="0.94"/>
+  <path d="M86 54V26H100.8C108 26 112.8 30.6 112.8 39.8C112.8 49 108 54 100.8 54H86ZM95.6 46.6H101C103.8 46.6 105.6 44.2 105.6 39.8C105.6 35.4 103.8 33.2 101 33.2H95.6V46.6Z" fill="#8DCFDB"/>
+  <circle cx="126" cy="40" r="14" stroke="#3CB1C3" stroke-width="4" fill="none"/>
+  <path d="M120 40H132" stroke="#EF517D" stroke-width="4" stroke-linecap="round"/>
 </svg>

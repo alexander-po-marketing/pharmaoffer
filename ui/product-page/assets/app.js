@@ -15,7 +15,8 @@ const suppliers = [
     certifications: ['CEP', 'EDMF'],
     leadTime: '21 days',
     volume: '120T yearly',
-    hero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80',
+    hero: 'assets/images/sinoway-facility.svg',
+    logo: 'assets/images/sinoway-logo.svg',
     tags: ['GMP', 'In stock', 'Audit ready'],
   },
   {
@@ -34,7 +35,8 @@ const suppliers = [
     certifications: ['FDA', 'cGMP'],
     leadTime: '28 days',
     volume: '85T yearly',
-    hero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80',
+    hero: 'assets/images/polpharma-facility.svg',
+    logo: 'assets/images/polpharma-logo.svg',
     tags: ['cGMP', 'Integrated plant', 'ICH Q7'],
   },
   {
@@ -43,7 +45,6 @@ const suppliers = [
     subtitle: 'Tehran, Iran · Est. 1977',
     rating: 4.2,
     badge: 'Verified',
-    logo: 'assets/images/temad-logo.svg',
     compliance: ['gmp'],
     forms: ['granules', 'powder'],
     regions: ['asia'],
@@ -55,6 +56,7 @@ const suppliers = [
     leadTime: '18 days',
     volume: '60T yearly',
     hero: 'assets/images/temad-facility.svg',
+    logo: 'assets/images/temad-logo.svg',
     tags: ['Rapid dispatch', 'Flexible MOQs'],
   },
   {
@@ -73,7 +75,8 @@ const suppliers = [
     certifications: ['WHO', 'ISO 14001'],
     leadTime: '16 days',
     volume: '95T yearly',
-    hero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80',
+    hero: 'assets/images/arshine-facility.svg',
+    logo: 'assets/images/arshine-logo.svg',
     tags: ['WHO prequalified', 'Sustainability'],
   },
   {
@@ -92,7 +95,8 @@ const suppliers = [
     certifications: ['US FDA', 'EU GMP'],
     leadTime: '20 days',
     volume: '140T yearly',
-    hero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80',
+    hero: 'assets/images/amoli-facility.svg',
+    logo: 'assets/images/amoli-logo.svg',
     tags: ['24h response', 'CEP ready'],
   },
   {
@@ -111,7 +115,8 @@ const suppliers = [
     certifications: ['GMP', 'FDA'],
     leadTime: '24 days',
     volume: '75T yearly',
-    hero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80',
+    hero: 'assets/images/grindeks-facility.svg',
+    logo: 'assets/images/grindeks-logo.svg',
     tags: ['Cold chain', 'Full traceability'],
   },
   {
@@ -130,7 +135,8 @@ const suppliers = [
     certifications: ['FDA', 'WHO', 'GMP'],
     leadTime: '30 days',
     volume: '200T yearly',
-    hero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80',
+    hero: 'assets/images/teva-facility.svg',
+    logo: 'assets/images/teva-logo.svg',
     tags: ['Global supply', 'Audit ready'],
   },
 ];
@@ -152,6 +158,7 @@ const resetFiltersBtn = document.getElementById('reset-filters');
 const sortOrderSelect = document.getElementById('sort-order');
 const bulkCta = document.getElementById('bulk-cta');
 const inquiryAction = document.getElementById('inquiry-action');
+const transactionalDial = document.querySelector('[data-role="transactional-dial"]');
 
 const state = {
   selected: new Set(),
@@ -165,12 +172,74 @@ const state = {
   sort: 'relevance',
 };
 
+const initTransactionalDial = () => {
+  if (!transactionalDial) return;
+
+  const rawValue = Number(transactionalDial.dataset.value);
+  const value = Number.isFinite(rawValue)
+    ? Math.max(0, Math.min(100, Math.round(rawValue)))
+    : 0;
+
+  const sweep = (value / 100) * 270;
+  const fillDegrees = `${sweep}deg`;
+  const rotation = `${-135 + sweep}deg`;
+
+  let activeColor = 'var(--brand-secondary)';
+  let trackColor = 'rgba(60, 177, 195, 0.18)';
+
+  if (value >= 80) {
+    activeColor = 'var(--brand-secondary)';
+    trackColor = 'rgba(60, 177, 195, 0.16)';
+  } else if (value >= 55) {
+    activeColor = 'var(--brand-primary)';
+    trackColor = 'rgba(54, 103, 127, 0.16)';
+  } else {
+    activeColor = 'var(--brand-accent)';
+    trackColor = 'rgba(239, 81, 125, 0.18)';
+  }
+
+  transactionalDial.style.setProperty('--dial-fill', fillDegrees);
+  transactionalDial.style.setProperty('--dial-rotation', rotation);
+  transactionalDial.style.setProperty('--dial-active', activeColor);
+  transactionalDial.style.setProperty('--dial-track', trackColor);
+  transactionalDial.dataset.value = String(value);
+  transactionalDial.setAttribute(
+    'aria-label',
+    `Transactional health score ${value} out of 100`,
+  );
+
+  const valueLabel = transactionalDial.querySelector('.dial__value');
+  if (valueLabel) {
+    valueLabel.textContent = String(value);
+  }
+
+  const statusChip = transactionalDial.closest('.insight-card')?.querySelector('.chip');
+  if (statusChip) {
+    statusChip.classList.remove('chip--positive', 'chip--neutral', 'chip--warning');
+
+    let nextClass = 'chip--neutral';
+    let nextLabel = 'Stable';
+
+    if (value >= 80) {
+      nextClass = 'chip--positive';
+      nextLabel = 'Improving';
+    } else if (value < 55) {
+      nextClass = 'chip--warning';
+      nextLabel = 'Needs attention';
+    }
+
+    statusChip.classList.add(nextClass);
+    statusChip.textContent = nextLabel;
+  }
+};
+
 const formatCurrency = (value) => `$${value.toLocaleString()} / kg`;
 
 const renderSupplierCard = (supplier) => {
   const card = template.content.firstElementChild.cloneNode(true);
   const checkbox = card.querySelector('.supplier-checkbox');
-  const media = card.querySelector('img');
+  const facilityImage = card.querySelector('.supplier-card__facility');
+  const logoImage = card.querySelector('.supplier-card__logo');
   const badge = card.querySelector('.supplier-badge');
   const title = card.querySelector('h3');
   const subtitle = card.querySelector('.supplier-card__subtitle');
@@ -181,8 +250,10 @@ const renderSupplierCard = (supplier) => {
   checkbox.dataset.id = supplier.id;
   checkbox.checked = state.selected.has(supplier.id);
 
-  media.src = supplier.hero;
-  media.alt = `${supplier.name} facility photo`;
+  facilityImage.src = supplier.hero;
+  facilityImage.alt = `${supplier.name} manufacturing site`;
+  logoImage.src = supplier.logo;
+  logoImage.alt = `${supplier.name} logo`;
 
   badge.textContent = supplier.badge;
   title.textContent = supplier.name;
@@ -324,7 +395,12 @@ const openCompareModal = () => {
         .map(
           (supplier) => `
             <tr>
-              <td>${supplier.name}</td>
+              <td>
+                <div class="compare-supplier">
+                  <img src="${supplier.logo}" alt="${supplier.name} logo" />
+                  <span>${supplier.name}</span>
+                </div>
+              </td>
               <td>${supplier.moq} kg</td>
               <td>${supplier.leadTime}</td>
               <td>${supplier.certifications.join(', ')}</td>
@@ -405,6 +481,7 @@ sortOrderSelect?.addEventListener('change', (event) => {
   renderSuppliers();
 });
 
+initTransactionalDial();
 initRange();
 renderSuppliers();
 updateSelectionBar();
