@@ -1,0 +1,6 @@
+<svg width="180" height="64" viewBox="0 0 180 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="64" rx="14" fill="#3CB1C3"/>
+  <circle cx="44" cy="32" r="18" fill="#36677F"/>
+  <path d="M44 22L50.196 36H37.804L44 22Z" fill="#8DCFDB"/>
+  <text x="70" y="38" fill="#083544" font-family="'Inter', 'Segoe UI', sans-serif" font-size="20" font-weight="700">POLPHARMA</text>
+</svg>

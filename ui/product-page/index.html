@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paracetamol API Suppliers | Pharmaoffer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="masthead">
+        <div class="breadcrumbs">
+          <a href="#">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="#">APIs</a>
+          <span aria-hidden="true">/</span>
+          <span>Paracetamol</span>
+        </div>
+        <div class="masthead__primary">
+          <div class="masthead__title-group">
+            <h1>Paracetamol API manufacturers &amp; suppliers</h1>
+            <p>
+              Discover GMP-certified suppliers, compare capabilities, and send
+              multi-supplier inquiries in one go.
+            </p>
+          </div>
+          <div class="masthead__meta">
+            <div class="meta-card">
+              <span class="meta-card__label">Avg. offer price</span>
+              <strong>$470 / kg</strong>
+              <small>Based on last 90 days</small>
+            </div>
+            <div class="meta-card">
+              <span class="meta-card__label">Monthly inquiries</span>
+              <strong>1,885</strong>
+              <small>Up 12% vs last month</small>
+            </div>
+            <div class="meta-card">
+              <span class="meta-card__label">Available suppliers</span>
+              <strong>57</strong>
+              <small>17 verified partners</small>
+            </div>
+            <div class="meta-card">
+              <span class="meta-card__label">Avg. lead time</span>
+              <strong>23 days</strong>
+              <small>Ready-to-ship batches</small>
+            </div>
+          </div>
+        </div>
+        <section class="insights">
+          <div class="insights__header">
+            <h2>Market insights</h2>
+            <button class="btn btn--ghost" type="button">
+              Download report
+            </button>
+          </div>
+          <div class="insights__content">
+            <article class="insight-card">
+              <header>
+                <h3>Global price trend</h3>
+                <span class="chip chip--positive">+4.2%</span>
+              </header>
+              <p>Average FOB price evolution over the past 12 months.</p>
+              <svg
+                viewBox="0 0 320 140"
+                role="img"
+                aria-label="Line chart showing upward trend"
+              >
+                <polyline
+                  fill="none"
+                  stroke="var(--brand-secondary)"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                  points="10,120 60,110 110,115 160,90 210,95 260,70 310,65"
+                ></polyline>
+                <line
+                  x1="10"
+                  y1="120"
+                  x2="310"
+                  y2="120"
+                  stroke="var(--brand-light)"
+                  stroke-dasharray="6 8"
+                ></line>
+              </svg>
+            </article>
+            <article class="insight-card">
+              <header>
+                <h3>Top exporting regions</h3>
+                <span class="chip">FY2024</span>
+              </header>
+              <ul class="progress-list">
+                <li>
+                  <span>India</span>
+                  <div class="progress">
+                    <div class="progress__bar" style="width: 68%"></div>
+                    <span class="progress__value">68%</span>
+                  </div>
+                </li>
+                <li>
+                  <span>China</span>
+                  <div class="progress">
+                    <div class="progress__bar" style="width: 52%"></div>
+                    <span class="progress__value">52%</span>
+                  </div>
+                </li>
+                <li>
+                  <span>Europe</span>
+                  <div class="progress">
+                    <div class="progress__bar" style="width: 28%"></div>
+                    <span class="progress__value">28%</span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+            <article class="insight-card">
+              <header>
+                <h3>Transactional health</h3>
+                <span class="chip chip--neutral">Stable</span>
+              </header>
+              <div class="insight-card__body">
+              <div
+                class="dial"
+                role="img"
+                aria-live="polite"
+                aria-label="Transactional health score 64 out of 100"
+                data-role="transactional-dial"
+                data-value="64"
+              >
+                <div class="dial__indicator" aria-hidden="true"></div>
+                <div class="dial__center">
+                  <span class="dial__value">64</span>
+                  <small>On-time deliveries</small>
+                </div>
+              </div>
+                <ul class="dial__legend">
+                  <li>Lead time predictability</li>
+                  <li>Repeat purchase score</li>
+                  <li>Quality compliance</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+      </header>
+
+      <main class="layout-grid">
+        <aside class="filters" aria-label="Filters">
+          <header>
+            <h2>Filter suppliers</h2>
+            <button class="filters__reset" type="button" id="reset-filters">
+              Reset
+            </button>
+          </header>
+          <form id="filters-form">
+            <fieldset>
+              <legend>Compliance</legend>
+              <label class="control control--checkbox">
+                <input type="checkbox" name="compliance" value="gmp" />
+                <span>GMP certified</span>
+              </label>
+              <label class="control control--checkbox">
+                <input type="checkbox" name="compliance" value="fda" />
+                <span>US FDA approved</span>
+              </label>
+              <label class="control control--checkbox">
+                <input type="checkbox" name="compliance" value="who" />
+                <span>WHO prequalified</span>
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>MOQ (kg)</legend>
+              <input
+                type="range"
+                id="moq"
+                name="moq"
+                min="0"
+                max="1000"
+                value="500"
+              />
+              <div class="range-value">
+                <span id="moq-value">Up to 500 kg</span>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Regions</legend>
+              <label class="control control--checkbox">
+                <input type="checkbox" name="region" value="asia" />
+                <span>Asia</span>
+              </label>
+              <label class="control control--checkbox">
+                <input type="checkbox" name="region" value="europe" />
+                <span>Europe</span>
+              </label>
+              <label class="control control--checkbox">
+                <input type="checkbox" name="region" value="americas" />
+                <span>Americas</span>
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>Form</legend>
+              <label class="control control--checkbox">
+                <input type="checkbox" name="form" value="powder" />
+                <span>Powder</span>
+              </label>
+              <label class="control control--checkbox">
+                <input type="checkbox" name="form" value="granules" />
+                <span>Granules</span>
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>Response time</legend>
+              <label class="control control--radio">
+                <input type="radio" name="response" value="24" />
+                <span>&lt; 24h</span>
+              </label>
+              <label class="control control--radio">
+                <input type="radio" name="response" value="48" />
+                <span>&lt; 48h</span>
+              </label>
+              <label class="control control--radio">
+                <input type="radio" name="response" value="72" />
+                <span>&lt; 72h</span>
+              </label>
+            </fieldset>
+          </form>
+        </aside>
+
+        <section class="results" aria-live="polite">
+          <div class="results__toolbar">
+            <span id="results-count">Showing 0 suppliers</span>
+            <div class="toolbar-actions">
+              <label class="control control--select">
+                <span>Sort by</span>
+                <select id="sort-order">
+                  <option value="relevance">Relevance</option>
+                  <option value="rating">Highest rating</option>
+                  <option value="price">Lowest price</option>
+                  <option value="response">Fastest response</option>
+                </select>
+              </label>
+              <button class="btn btn--ghost" type="button" id="compare-btn">
+                Compare selected
+              </button>
+            </div>
+          </div>
+          <div class="supplier-list" id="supplier-list" role="list"></div>
+        </section>
+
+        <aside class="sidebar">
+          <div class="cta-card">
+            <h2>Send multiple inquiries</h2>
+            <p>
+              Select the suppliers you want to contact and send one consolidated
+              brief with just a few clicks.
+            </p>
+            <ul>
+              <li>Attach documents &amp; NDAs</li>
+              <li>Track responses in your inbox</li>
+              <li>Invite colleagues to collaborate</li>
+            </ul>
+            <button class="btn btn--primary" type="button" id="bulk-cta">
+              Start inquiry
+            </button>
+          </div>
+          <div class="ad-slot">
+            <span>Sponsored</span>
+            <div class="ad-slot__content">
+              <p>Promote your manufacturing capacity</p>
+              <button class="btn btn--ghost" type="button">Book ad space</button>
+            </div>
+          </div>
+          <div class="ad-slot ad-slot--tall">
+            <span>Sponsored</span>
+            <div class="ad-slot__content">
+              <p>Showcase your QA capabilities to buyers</p>
+              <button class="btn btn--ghost" type="button">Learn more</button>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div class="selection-bar" id="selection-bar">
+      <div class="selection-bar__info">
+        <strong id="selected-count">0 suppliers selected</strong>
+        <span>Select multiple suppliers to send bulk inquiries.</span>
+      </div>
+      <div class="selection-bar__actions">
+        <button class="btn btn--ghost" type="button" id="clear-selection">
+          Clear selection
+        </button>
+        <button class="btn btn--primary" type="button" id="inquiry-action">
+          Send inquiries
+        </button>
+      </div>
+    </div>
+
+    <template id="supplier-card-template">
+      <article class="supplier-card" role="listitem">
+        <label class="supplier-card__selector">
+          <input type="checkbox" class="supplier-checkbox" />
+          <span class="checkbox-custom" aria-hidden="true"></span>
+        </label>
+        <figure class="supplier-card__media">
+          <img
+            class="supplier-card__facility"
+            src=""
+            alt=""
+            loading="lazy"
+          />
+          <div class="supplier-card__logo-wrapper">
+            <img
+              class="supplier-card__logo"
+              src=""
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <span class="supplier-badge"></span>
+        </figure>
+        <div class="supplier-card__body">
+          <div class="supplier-card__header">
+            <div>
+              <h3></h3>
+              <p class="supplier-card__subtitle"></p>
+            </div>
+            <div class="supplier-card__rating">
+              <span class="rating-value"></span>
+              <span class="rating-label">response score</span>
+            </div>
+          </div>
+          <ul class="supplier-card__meta"></ul>
+          <div class="supplier-card__tags"></div>
+        </div>
+        <div class="supplier-card__actions">
+          <button class="btn btn--ghost btn--small" type="button">
+            View profile
+          </button>
+          <button class="btn btn--primary btn--small" type="button">
+            Quick inquiry
+          </button>
+        </div>
+      </article>
+    </template>
+
+    <div class="modal" id="compare-modal" hidden>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="compare-title">
+        <header class="modal__header">
+          <h2 id="compare-title">Compare suppliers</h2>
+          <button class="modal__close" type="button" aria-label="Close">
+            &times;
+          </button>
+        </header>
+        <div class="modal__content" id="compare-content"></div>
+      </div>
+    </div>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>

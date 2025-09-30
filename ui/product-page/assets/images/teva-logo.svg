@@ -1,0 +1,5 @@
+<svg width="180" height="64" viewBox="0 0 180 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="64" rx="14" fill="#1F8A9D"/>
+  <path d="M34 40H54C58.4183 40 62 36.4183 62 32C62 27.5817 58.4183 24 54 24H46L42 18H34V40Z" fill="#8DCFDB"/>
+  <text x="70" y="38" fill="#F4FEFF" font-family="'Inter', 'Segoe UI', sans-serif" font-size="22" font-weight="700">TEVA</text>
+</svg>

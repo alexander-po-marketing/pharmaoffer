@@ -1,0 +1,6 @@
+<svg width="180" height="64" viewBox="0 0 180 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="64" rx="14" fill="#8DCFDB"/>
+  <path d="M32 44L44 20L56 44H32Z" fill="#36677F"/>
+  <circle cx="44" cy="30" r="6" fill="#EF517D"/>
+  <text x="70" y="38" fill="#1F4B5C" font-family="'Inter', 'Segoe UI', sans-serif" font-size="22" font-weight="700">ARSHINE</text>
+</svg>
