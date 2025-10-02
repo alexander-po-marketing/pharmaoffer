@@ -49,7 +49,7 @@ a:hover {
 }
 
 .page-shell {
-  max-width: 1220px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 48px clamp(24px, 6vw, 72px) 96px;
 }
@@ -779,8 +779,8 @@ a:hover {
 
 .layout-grid {
   display: grid;
-  grid-template-columns: 340px minmax(0, 1fr) 400px;
-  gap: 36px;
+  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr) minmax(280px, 340px);
+  gap: 32px;
   align-items: start;
 }
 
@@ -904,9 +904,9 @@ a:hover {
 
 .supplier-card {
   display: grid;
-  grid-template-columns: auto minmax(180px, 220px) minmax(0, 2fr) minmax(190px, 220px);
+  grid-template-columns: auto minmax(150px, 200px) minmax(0, 1fr) minmax(170px, 210px);
   grid-template-areas: 'selector branding body aside';
-  gap: 24px;
+  gap: 20px;
   padding: 24px;
   background: var(--surface);
   border-radius: var(--radius-lg);
@@ -1368,9 +1368,9 @@ a:hover {
   background: rgba(54, 103, 127, 0.08);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1340px) {
   .layout-grid {
-    grid-template-columns: 320px minmax(0, 1fr);
+    grid-template-columns: minmax(260px, 1fr) minmax(0, 1.2fr);
     gap: 32px;
   }
 
