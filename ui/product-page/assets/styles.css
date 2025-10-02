@@ -25,7 +25,7 @@ body {
     sans-serif;
   color: var(--brand-dark);
   background: linear-gradient(120deg, #ffffff 0%, #f4fbf9 55%, #eef7ff 100%);
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .visually-hidden {
@@ -50,7 +50,7 @@ a:hover {
 }
 
 .page-shell {
-  max-width: 1920px;
+  max-width: 1680px;
   margin: 0 auto;
   padding: 20px clamp(24px, 4vw, 64px) 48px;
 }
@@ -69,7 +69,7 @@ a:hover {
 }
 
 .site-header__inner {
-  max-width: 1920px;
+  max-width: 1680px;
   margin: 0 auto;
   padding: 6px clamp(20px, 4vw, 64px);
   display: grid;
@@ -171,12 +171,13 @@ a:hover {
 
 .site-header__nav ul {
   margin: 0 auto;
-  max-width: 1600px;
+  max-width: 1680px;
   padding: 10px clamp(24px, 4vw, 64px) 12px;
   display: flex;
   align-items: center;
   gap: clamp(14px, 3vw, 36px);
   list-style: none;
+  justify-content: center;
 }
 
 .site-header__nav a {
@@ -246,7 +247,7 @@ a:hover {
 }
 
 .masthead__title-group h1 {
-  font-size: clamp(28px, 3.4vw, 40px);
+  font-size: clamp(18px, 2.4vw, 32px);
   margin: 0 0 clamp(8px, 1.8vw, 14px);
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -254,10 +255,9 @@ a:hover {
 
 .masthead__title-group p {
   margin: 0;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.45;
   color: rgba(27, 39, 50, 0.7);
-  max-width: 480px;
 }
 
 .product-overview {
@@ -389,7 +389,7 @@ a:hover {
 
 .product-overview__section h2 {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--brand-primary);
 }
 
